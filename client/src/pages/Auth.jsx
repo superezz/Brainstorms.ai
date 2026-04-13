@@ -53,11 +53,35 @@ function Auth() {
         </motion.div>
         {/* RIGHT CONTENT */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <Features
-            icon="🎁"
-            title="50 Free Credits"
-            description="Generate comprehensive exam notes in seconds."
-          />
+            <Features
+              icon="🎁"
+              title="50 Free Credits"
+              description="Start with 50 credits to generate notes without paying."
+            />
+
+            <Features
+              icon="📝"
+              title="Exam Notes"
+              description="High-yield, revision-ready exam-oriented notes."
+            />
+
+            <Features
+              icon="📁"
+              title="Project Notes"
+              description="Well-structured documentation for assignments & projects."
+            />
+
+            <Features
+              icon="📊"
+              title="Charts & Graphs"
+              description="Auto-generated diagrams, charts and flow graphs."
+            />
+
+            <Features
+              icon="⬇️"
+              title="Free PDF Download"
+              description="Download clean, printable PDFs instantly."
+            />
         </div>
       </main>
     </div>
@@ -68,8 +92,8 @@ function Features({ icon, title, description }) {
     <motion.div
       whileHover={{ y: -12, rotateX: 8, rotateY: -8, scale: 1.05 }}
       transition={{ type: "spring", stiffness: 200, damping: 18 }}
+      className="relative rounded-2xl p-6 bg-gradient-to-br from-black/90 via-black/80 to-black/90 backdrop-blur-2xl border border-white/10  shadow-[0_30px_80px_rgba(0,0,0,0.7)] text-white"
       style={{ transformStyle: "preserve-3d" }}
-      className="relative bg-black/80 bg-gradient-to-br from-black/90 via-black/80 to-black/90 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-[0_30px_80px_rgba(0,0,0,0.7)] text-white"
     >
       <div className="relative z-10" style={{ transform: "translateZ(30px)" }}>
         <div className="text-4xl mb-3">{icon}</div>
