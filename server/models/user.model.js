@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { ref } from "pdfkit";
 
 
 const userSchema = new mongoose.Schema({
@@ -29,6 +28,6 @@ const userSchema = new mongoose.Schema({
   }
 }, { timestamps: true })
 
-const User = mongoose.model("UserModel", userSchema)
+const User = mongoose.model("User", userSchema)
 
-export default UserModel;
+export default User;

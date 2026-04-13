@@ -1,9 +1,28 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import { features, motion } from "motion/react";
 import { FcGoogle } from "react-icons/fc";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../utils/firebase";
+import axios from "axios";
+import { serverUrl } from "../App";
 
 function Auth() {
+  const handleGoogleAuth = async () => {
+    try {
+      const response = await signInWithPopup(auth, provider);
+      const user = response.user;
+      const name = user.displayName;
+      const email = user.email;
+      const photoURL = user.photoURL;
+      const result = await axios.post(
+        serverUrl + "/api/auth/google",
+        { name, email, photoURL },
+        { withCredentials: true },
+      );
+      console.log("Server Response:", result.data);
+    } catch (error) {}
+  };
+
   return (
     <div className="min-h-screen overflow-hidden bg-white text-black px-8">
       <motion.header
@@ -13,7 +32,7 @@ function Auth() {
         className="max-w-7xl mx-auto mt-8 rounded-2xl bg-black/80 bakcdrop-blur-xl border border-white/10 px-8 py-6 shadow[0_20px_45px_rgba(0,0,0,0.6)]"
       >
         <h1 className="text-2xl font-bold bg-linear-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
-          Exam Notes AI
+          Brainstorms
         </h1>
         <p className="text-sm text-gray-300 mt-1">
           AI Prowered Exam Oriented Notes and Lectures
@@ -33,6 +52,7 @@ function Auth() {
           </h1>
 
           <motion.button
+            onClick={handleGoogleAuth}
             whileHover={{ y: -10, rotateX: 8, rotateY: -8, scale: 1.07 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
@@ -53,35 +73,35 @@ function Auth() {
         </motion.div>
         {/* RIGHT CONTENT */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <Features
-              icon="🎁"
-              title="50 Free Credits"
-              description="Start with 50 credits to generate notes without paying."
-            />
+          <Features
+            icon="🎁"
+            title="50 Free Credits"
+            description="Start with 50 credits to generate notes without paying."
+          />
 
-            <Features
-              icon="📝"
-              title="Exam Notes"
-              description="High-yield, revision-ready exam-oriented notes."
-            />
+          <Features
+            icon="📝"
+            title="Exam Notes"
+            description="High-yield, revision-ready exam-oriented notes."
+          />
 
-            <Features
-              icon="📁"
-              title="Project Notes"
-              description="Well-structured documentation for assignments & projects."
-            />
+          <Features
+            icon="📁"
+            title="Project Notes"
+            description="Well-structured documentation for assignments & projects."
+          />
 
-            <Features
-              icon="📊"
-              title="Charts & Graphs"
-              description="Auto-generated diagrams, charts and flow graphs."
-            />
+          <Features
+            icon="📊"
+            title="Charts & Graphs"
+            description="Auto-generated diagrams, charts and flow graphs."
+          />
 
-            <Features
-              icon="⬇️"
-              title="Free PDF Download"
-              description="Download clean, printable PDFs instantly."
-            />
+          <Features
+            icon="⬇️"
+            title="Free PDF Download"
+            description="Download clean, printable PDFs instantly."
+          />
         </div>
       </main>
     </div>
