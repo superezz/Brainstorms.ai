@@ -11,3 +11,13 @@ export const getCurrentUser = async (dispatch) => {
     console.error("Error fetching current user:", error)
   }
 }
+
+export const generateNotes = async (payload)=>{
+  try {
+    const result = await axios.post(serverUrl+"/api/notes/generate-notes",payload,{withCredentials:true})
+    console.log(result.data)
+    return result.data
+  } catch (error) {
+    console.log(error)
+  }
+}
