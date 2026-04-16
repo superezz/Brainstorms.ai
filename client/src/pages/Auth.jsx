@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice";
 
 function Auth() {
-  const dispatch = useDispatch
+  const dispatch = useDispatch();
   const handleGoogleAuth = async () => {
     try {
       const response = await signInWithPopup(auth, provider);
@@ -22,7 +22,7 @@ function Auth() {
         { name, email, photoURL },
         { withCredentials: true },
       );
-dispatch(setUserData(result.data))
+      dispatch(setUserData(result.data));
     } catch (error) {}
   };
 

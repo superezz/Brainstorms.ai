@@ -9,7 +9,7 @@ import { setUserData } from "../redux/userSlice";
 
 function Footer() {
   const navigate = useNavigate();
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const handleSignOut = async () => {
     try {
       await axios.get(serverUrl + "/api/auth/logout", {
@@ -102,7 +102,9 @@ function Footer() {
         </div>
       </div>
       <div className="my-6 h-px bg-white/10"></div>
-      <p className="text-center text-xs text-gray-500">© Brainstorms AI. All rights reserved</p>
+      <p className="text-center text-xs text-gray-500">
+        © Brainstorms AI. All rights reserved
+      </p>
     </motion.div>
   );
 }

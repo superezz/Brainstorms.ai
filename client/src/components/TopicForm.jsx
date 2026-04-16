@@ -3,18 +3,17 @@ import { motion } from "framer-motion";
 import { generateNotes } from "../services/api";
 import { useDispatch } from "react-redux";
 import { updateCredits } from "../redux/userSlice";
-// import { generateNotes } from "../../../server/controllers/generate.controller";
 
 function TopicForm({ setResult, setLoading, loading, setError }) {
   const [topic, setTopic] = useState("");
   const [classLevel, setClassLevel] = useState("");
   const [examType, setExamType] = useState("");
   const [revisionMode, setRevisionMode] = useState(false);
-  const [includeDiadram, setIncludeDiagram] = useState(false);
+  const [includeDiagram, setIncludeDiagram] = useState(false);
   const [includeChart, setIncludeChart] = useState(false);
   const [progress, setProgress] = useState(0);
   const [progressText, setProgressText] = useState("");
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleSubmit = async () => {
     if (!topic.trim()) {
@@ -30,22 +29,21 @@ function TopicForm({ setResult, setLoading, loading, setError }) {
         classLevel,
         examType,
         revisionMode,
-        includeDiadram,
+        includeDiagram,
         includeChart,
       });
-      setResult(result);
+      setResult(result.data);
       setLoading(false);
-      setClassLevel("")
-      setTopic("")
-      setExamType("")
-      setIncludeChart(false)
-      setRevisionMode(false)
-      setIncludeDiagram(false)
+      setClassLevel("");
+      setTopic("");
+      setExamType("");
+      setIncludeChart(false);
+      setRevisionMode(false);
+      setIncludeDiagram(false);
 
-      if(typeof result.creditsLeft === "number" ){
-dispatch(updateCredits(result.creditsLeft))
+      if (typeof result.creditsLeft === "number") {
+        dispatch(updateCredits(result.creditsLeft));
       }
-
     } catch (error) {
       console.log(error);
       setError("Failed to fetch notes from server");
@@ -115,8 +113,8 @@ dispatch(updateCredits(result.creditsLeft))
         />
         <Toggle
           label="Include Diagram"
-          checked={includeDiadram}
-          onChange={() => setIncludeDiagram(!includeDiadram)}
+          checked={includeDiagram}
+          onChange={() => setIncludeDiagram(!includeDiagram)}
         />
         <Toggle
           label="Include Charts"

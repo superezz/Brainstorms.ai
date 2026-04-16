@@ -6,13 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser } from "./services/api";
 import History from "./pages/History";
 import Notes from "./pages/Notes";
-import Pricing from "./pages/Pricing"
+import Pricing from "./pages/Pricing";
 export const serverUrl = "http://localhost:8000";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    getCurrentUser(dispatch)
+    getCurrentUser(dispatch);
   }, [dispatch]);
 
   const { userData } = useSelector((state) => state.user);
@@ -34,14 +34,13 @@ function App() {
         />
         <Route
           path="/notes"
-          element={userData ? <Notes/> : <Navigate to="/auth" replace />}
+          element={userData ? <Notes /> : <Navigate to="/auth" replace />}
         />
         <Route
           path="/pricing"
           element={userData ? <Pricing /> : <Navigate to="/auth" replace />}
         />
       </Routes>
-      
     </>
   );
 }
