@@ -78,7 +78,7 @@ function Sidebar({ result }) {
             Diagram Questions
           </p>
           <ul className="list-disc ml-4 text-sm text-gray-700 space-y-1">
-            <li>{result.diagram && result.diagram.data}</li>
+            <li>{result.questions.diagram}</li>
           </ul>
         </div>
       </section>

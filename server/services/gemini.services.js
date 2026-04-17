@@ -15,9 +15,9 @@ export const generateGeminiResponse = async (prompt) => {
           contents: [
             {
               parts: [{ text: prompt }],
-            },
-          ],
-        }),
+            }
+          ]
+        })
       }
     );
 
@@ -38,7 +38,7 @@ export const generateGeminiResponse = async (prompt) => {
 
     return JSON.parse(cleanText);
   } catch (error) {
-console.error("Gemini Fetch Error: ",error.message);
-throw new Error("Gemini API fetch failed")
+    console.error("Gemini Fetch Error: ", error.message);
+    throw new Error("Gemini API fetch failed")
   }
-};
+}

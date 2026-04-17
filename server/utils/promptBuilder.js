@@ -4,12 +4,12 @@ export const buildPrompt = ({
   examType,
   revisionMode,
   includeDiagram,
-  includeChart,
+  includeChart
 }) => {
   return `
 You are a STRICT JSON generator for an exam preparation system.
 
-VERY IMPORTANT:
+⚠️ VERY IMPORTANT:
 - Output MUST be valid JSON
 - Your response will be parsed using JSON.parse()
 - INVALID JSON will cause system failure

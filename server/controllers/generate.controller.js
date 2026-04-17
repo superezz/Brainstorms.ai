@@ -38,7 +38,7 @@ export const generateNotes = async (req, res) => {
       examType,
       revisionMode,
       includeDiagram,
-      includeChart,
+      includeChart
     })
     const aiResponse = await generateGeminiResponse(prompt)
 
@@ -55,7 +55,7 @@ export const generateNotes = async (req, res) => {
 
     user.credits -= 10;
 
-    if (user.credits <= 0) user.isCreditAvailable = false;
+    if (user.credits <= 0) user.isCreditsAvailable = false;
 
     if (!Array.isArray(user.notes)) {
       user.notes = [];
