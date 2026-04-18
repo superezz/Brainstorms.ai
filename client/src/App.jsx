@@ -7,6 +7,8 @@ import { getCurrentUser } from "./services/api";
 import History from "./pages/History";
 import Notes from "./pages/Notes";
 import Pricing from "./pages/Pricing";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentFailed from "./pages/PaymentFailed";
 export const serverUrl = "http://localhost:8000";
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
           path="/pricing"
           element={userData ? <Pricing /> : <Navigate to="/auth" replace />}
         />
+        <Route path="/payment-success" element={<PaymentSuccess/>} />
+         <Route path="/payment-failed" element={<PaymentFailed/>} />
       </Routes>
     </>
   );
