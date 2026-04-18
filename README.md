@@ -57,7 +57,7 @@ AI-powered platform to generate **exam-oriented notes, project notes, charts, an
 
 ## 🚀 Live Demo
 
-**Frontend:** `https://brainstorms-client.onrender.com/`  
+**Frontend:** `https://brainstorms-client.onrender.com`  
 **Backend API:** `https://brainstorms-ai-server.onrender.com`  
 
 **Test Stripe Card:** `4242 4242 4242 4242` | Exp: `12/30` | CVC: `123`
