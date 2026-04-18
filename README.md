@@ -90,5 +90,5 @@ This project is open-source and available under the MIT License.
 
 ## 👨‍💻 Author
 
-ARYA RCB
+ARYA RCB <br/>
 GitHub: https://github.com/superezz
