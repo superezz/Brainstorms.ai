@@ -16,10 +16,10 @@ function Auth() {
       const user = response.user;
       const name = user.displayName;
       const email = user.email;
-      const photoURL = user.photoURL;
+
       const result = await axios.post(
         serverUrl + "/api/auth/google",
-        { name, email, photoURL },
+        { name, email},
         { withCredentials: true },
       );
       dispatch(setUserData(result.data));
