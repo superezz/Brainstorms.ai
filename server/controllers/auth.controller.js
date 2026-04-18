@@ -4,10 +4,10 @@ import { getToken } from "../utils/token.js";
 
 export const googleAuth = async (req, res) => {
   try {
-    const { name, email, photoURL } = req.body;
+    const { name, email} = req.body;
     let user = await UserModel.findOne({ email });
     if (!user) {
-      user = await UserModel.create({ name, email, photoURL })
+      user = await UserModel.create({ name, email})
     }
     let token = await getToken(user._id);
     res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none", maxAge: 7 * 24 * 60 * 60 * 1000 })
